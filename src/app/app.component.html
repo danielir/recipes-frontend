@@ -1,3 +1,15 @@
 <h1>
   {{title}}
 </h1>
+
+<form name="options">
+  <button (click)="showRecipes()">show recipes in console</button>
+  <label for="servings">servings</label>
+  <input type="number" id="servings" name="servings" [(ngModel)]="servings" min="1" max="10">
+  <button (click)="calculateIngredients()">calculate total ingredients</button>
+</form>
+<recipe *ngFor="let recipe of recipes" [recipe]="recipe"></recipe>
+<shoppinglist [ingredients]="totalIngredients" [varietyIngredients]="varietyUnits"></shoppinglist>
+<button (click)="sendByEmail()">send by email</button>
+
+
